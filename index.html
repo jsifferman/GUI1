@@ -1,0 +1,105 @@
+<!--
+    File: /usr/cs/undergrad/2020/jsiffer1/public_html/assignments/4/assignment4.html
+    Course: COMP.4610 GUI Programming I
+    Assignment: 4 - Styling Your First Web Page With CSS
+
+    James Sifferman, UML Computer Science, james_sifferman@student.uml.edu
+    Copyright (c) 2019 by James Sifferman. All rights reserved. May be
+    freely copied or excerpted for educational purposes with credit to
+    the author.
+    Updated by JS on October 8, 2019 at 8:00 PM
+-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>James Sifferman Homepage</title>
+        <link rel="stylesheet" href="css/stylesheet.css" />
+    </head>
+    <body>
+        <!-- Home anchor point -->
+        <a name="home"></a>
+        
+        <div class="wrapper">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#assignments">Assignments</a></li>
+                    <li><a href="mailto:james_sifferman@student.uml.edu">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Top Container -->
+            <section class="top-container">
+                <header class="showcase">
+                    <h1>James Sifferman</h1>
+                    <h2>COMP.4610 Fall 2019 Homepage</h2>
+                    <div class="p-wrapper">
+                        <p>
+                            Welcome to my site! Here you'll have access to my GUI 1 Programming assignments.
+                        </p>
+                    </div>
+                </header>
+                <div class="top-box top-box-a">
+                    <h4>Interests</h4>
+                    <ul id="interests">
+                        <li>Technology</li>
+                        <li>Virtual Reality</li>
+                        <li>Machine Learning</li>
+                        <li>Software Engineering</li>
+                    </ul>
+                    <a href="#about" class="btn">Learn More</a>
+                </div>
+                <div class="top-box top-box-b">
+                    <h4>Skills</h4>
+                    <ul id="skills">
+                        <li>C/C++</li>
+                        <li>Python</li>
+                        <li>HTML/CSS</li>
+                        <li>Docker</li>
+                    </ul>
+                    <a href="https://linkedin.com/in/jsifferman/" target="_blank" class="btn">Learn More</a>
+                </div>
+            </section>
+
+            <!-- Assignments anchor point -->
+            <a name="assignments"></a>
+
+            <!-- Boxes Section --> 
+            <section class="boxes">
+                <ul>
+                    <li><a href="#">Assignment 1</a></li>
+                    <li><a href="assignments/2/assignment2.html">Assignment 2</a></li>
+                    <li><a href="assignments/3/assignment3.html">Assignment 3</a></li>
+                    <li><a href="index.html">Assignment 4</a></li>
+                    <li><a href="#">Assignment 5</a></li>
+                    <li><a href="#">Assignment 6</a></li>
+                    <li><a href="#">Assignment 7</a></li>
+                    <li><a href="#">Assignment 8</a></li>
+                </ul>
+            </section>
+
+            <!-- About anchor point -->
+            <a name="about"></a>
+
+            <!-- About Section -->
+            <section class="info">
+                <div class="bottom-box bottom-box-a">
+                    <h1>About</h1>
+                    <p>I'm James and I am a senior Computer Science undergraduate at the University of Massachusetts Lowell. I'm expecting to graduate in May 2020. I have a passion for technology and am always interested in applying my skills in creative ways.</p>
+                    <p>This webpage is part of my COMP.4610 GUI Programming 1 course requirements. It will serve as an index for future assignments, and will be used to showcase web development skills and techniques I acquire over the course of this semester.</p>
+                    <p>Coming into this course, I have approximately zero web development experience. Learning HTML, CSS, and other full-stack technologies is intriguing and an enjoyable challenge.</p>
+                </div>
+                <div class="bottom-box bottom-box-b"></div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <p> James Sifferman &copy; 2019</p>
+            </footer>
+        </div>
+        <!-- Wrapper ends -->
+    </body>
+</html>
