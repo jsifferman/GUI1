@@ -13,21 +13,12 @@
 const INT_MAX = 50;
 const INT_MIN = -50;
 
-// Prevent the form from submitting the entries. Run unit tests.
+// Prevent the form from submitting the entries.
 document.getElementById("button").addEventListener("click", function (event) {
     event.preventDefault();
     
     // Test Suite for Unit Tests
-    console.log(`********************************`);
-    console.log(`Begin output of unit tests.`);
-    console.log(`********************************`);
-    testValidEntries();
-    testReturnMinMax();
-    testMakeRange();
-    testInRange();
-    console.log(`********************************`);
-    console.log(`End output of unit tests.`);
-    console.log(`********************************`);
+    // runTests();
 });
 
 /* Description: validateForm() is called when the "Submit" button is clicked.
@@ -71,19 +62,16 @@ function main( values ) {
 
     clearErrorAndTable();
 
-    let [colStart, colEnd, rowStart, rowEnd] = values;
-    console.log('main(): The entries are valid.');
+    let [ colStart, colEnd, rowStart, rowEnd ] = values;
     
     // Sort the endpoints in ascending order. 
-    [colStart, colEnd] = returnMinMax(colStart, colEnd);
-    [rowStart, rowEnd] = returnMinMax(rowStart, rowEnd);
+    [ colStart, colEnd ] = returnMinMax(colStart, colEnd);
+    [ rowStart, rowEnd ] = returnMinMax(rowStart, rowEnd);
 
     // In order to build multi-dimensional array, we need to calculate all
     // the values contained within our ranges.
     let columnVals = makeRange(colStart, colEnd);
     let rowVals = makeRange(rowStart, rowEnd);
-    console.log(`column: ${columnVals}`);
-    console.log(`row: ${rowVals}`);
 
     // Multi-dimensional array will hold the products of the multiplication.
     let table = makeTwoDimensionalArray(columnVals, rowVals);
@@ -113,13 +101,11 @@ function makeTwoDimensionalArray( columnVals, rowVals ) {
             row.push(columnVals[j] * rowVals[i]);
         }
         table.push(row);
-        console.log(row);
         row = [];
     }
     // Insert the "blank cell" that forms the top left corner of the table.
     table[0].unshift("");
 
-    console.log(table);
     return table;
 }
 
@@ -174,11 +160,9 @@ function addRow( tbl, vals ) {
     for ( let i = 0; i < vals.length; i++ ) {
         if ( i == 0 ) {
             addHeaderCell(tr, vals[i], "row");
-            console.log(`addRow(): First element added: ${vals[i]}`);
             continue;
         }
         addCell(tr, vals[i]);
-        console.log(`addRow(): Added ${vals[i]} to table.`);
     }
     tbl.appendChild(tr);
 }
@@ -197,7 +181,6 @@ function addHeaderRow( tbl, vals ) {
     for ( let i = 0; i < vals.length; i++ ) {
         addHeaderCell(tr, vals[i], "column");
     }
-    console.log(`addHeaderRow(): Added table header row`);
     tbl.appendChild(tr);
 }
 
@@ -218,7 +201,6 @@ function makeTable( table ) {
     for (let i = 1; i < table.length; i++) {
         addRow(tbl, table[i], "row");
     }
-    console.log(`makeTable(): tbl: ${tbl}`);
 }
 
 /* Description: Given two values that form a range i.e., [3, 7],
@@ -229,19 +211,15 @@ function makeTable( table ) {
  */
 function makeRange( a, b ) {
 
-    const start = parseInt(a, 10);
-    const end = parseInt(b, 10);
-    console.log(`makeRange(): start = ${start}, end = ${end}`);
+    const start = parseInt(a);
+    const end = parseInt(b);
     const length = end - start + 1;
-    let range = [];
 
-    console.log(`makeRange: Before loop: length = ${length},
-                                          range = ${range}`);
+    let range = [];
 
     for ( let i = start; i <= end; i++ ) {
         range.push(i);
     }
-    console.log(`makeRange: After loop: ${range}`);
     return range;
 }
 
@@ -258,7 +236,6 @@ function validEntries( entries ) {
     }
     for ( let entry of entries ) {
         if ( !isValidNumber(entry) ) {
-            console.log('validEntries(): You are using an invalid value.');
             return false;
         }
     }
@@ -273,10 +250,8 @@ function validEntries( entries ) {
 function isValidNumber( value ) {
     
     if ( value && !isNaN(value) && Number.isSafeInteger(Number(value)) ) {
-            console.log(`isValidNumber(): ${value} is valid`);
             return true;
     }
-    console.log(`isValidNumber(): ${value} is not a valid input.`);
     return false;
 }
 
@@ -291,11 +266,9 @@ function inRange( values ) {
     
     for( let i in values ) {
         if ( parseInt(values[i]) < INT_MIN || parseInt(values[i]) > INT_MAX ) {
-            console.log(`inRange(): Values are outside the acceptable range.`);
             return false;
         }
     }
-    console.log(`inRange(): Values are all within the acceptable range.`);
     return true;
 }
 
@@ -314,7 +287,7 @@ function getValues() {
     let rowStart = document.querySelector('#vertical_start').value;
     let rowEnd = document.querySelector('#vertical_end').value;
 
-    return [colStart, colEnd, rowStart, rowEnd];
+    return [ colStart, colEnd, rowStart, rowEnd ];
 }
 
 /* Description: Sorts two given values in ascending order.
@@ -327,11 +300,9 @@ function returnMinMax( first, second ) {
     second = parseInt(second);
 
     if ( first > second ) {
-        console.log(`returnMinMax(): ${first} > ${second}`);
-        return [second, first];
+        return [ second, first ];
     } else {
-        console.log(`returnMinMax(): ${first} < ${second}`);
-        return [first, second];
+        return [ first, second ];
     }
 }
 
@@ -349,54 +320,68 @@ function clearErrorAndTable() {
 
 /* Testing */
 
+function runTests() {
+
+    console.log(`********************************`);
+    console.log(`Begin output of unit tests.`);
+    console.log(`********************************`);
+    testValidEntries();
+    testReturnMinMax();
+    testMakeRange();
+    testInRange();
+    console.log(`********************************`);
+    console.log(`End output of unit tests.`);
+    console.log(`********************************`);
+}
+
 function testValidEntries() {
 
     let testVals;
     // Case 1
     // All positive integers.
-    testVals = [1, 2, 3, 4];
+    testVals = [ 1, 2, 3, 4 ];
     console.assert(validEntries(testVals),
                    'Case 1 failed with %s.', testVals.toString());
 
     // Case 2
     // Negative mixed with positive integers.
-    testVals = [-1, 2, 9, 10];
+    testVals = [ -1, 2, 9, 10 ];
     console.assert(validEntries(testVals),
                    'Case 2 failed with %s.', testVals.toString());
 
     // Case 3
     // All negative integers.
-    testVals = [-55, -45, -2, -1];
+    testVals = [ -55, -45, -2, -1 ];
     console.assert(validEntries(testVals),
                    'Case 3 failed with %s.', testVals.toString());
 
     // Case 4
     // Missing values.
-    testVals = [1, 2, 3, ];
+    testVals = [ 1, 2, 3, ];
     console.assert(!validEntries(testVals),
                    'Case 4 failed with %s.', testVals.toString());
 
     // Case 5
     // One valid integer that is of type string.
-    testVals = [1, 2, "3", 4];
+    testVals = [ 1, 2, "3", 4 ];
     console.assert(validEntries(testVals),
                    'Case 5 failed with %s.', testVals.toString());
 
     // Case 6
     // One invalid input that is of type string.
-    testVals = [1, 2, "foo", 4];
+    testVals = [ 1, 2, "foo", 4 ];
     console.assert(!validEntries(testVals),
                    'Case 6 failed with %s.', testVals.toString());
 
     // Case 7
     // One invalid input that is the empty string.
-    testVals = [1, 2, "", 4];
+    testVals = [ 1, 2, "", 4 ];
     console.assert(!validEntries(testVals),
                    'Case 7 failed with %s.', testVals.toString());
 
     // Case 8
     // One invalid input that is a floating point number.
-    testVals = [1, 3.14, 8, 4];
+    testVals = [ 1, 3.14, 8, 4 ];
     console.assert(!validEntries(testVals), 
                    'Case 8 failed with %s.', testVals.toString());
 }
