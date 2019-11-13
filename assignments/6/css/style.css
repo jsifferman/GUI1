@@ -1,0 +1,122 @@
+/*
+    File: /usr/cs/undergrad/2020/jsiffer1/public_html/assignments/6/css/style.css
+    Course: COMP.4610 GUI Programming I
+    Assignment: 6 - Creating an Interactive Dynamic Table
+
+    James Sifferman, UML Computer Science, james_sifferman@student.uml.edu
+    Copyright (c) 2019 by James Sifferman. All rights reserved. May be
+    freely copied or excerpted for educational purposes with credit to
+    the author.
+    Updated by JS on November 12, 2019 at 8:00 PM
+*/
+
+body {
+    background-color: #e0e0e0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Table CSS */
+
+/* #table-container holds #table-wrapper. While #table-wrapper holds the <table>.
+ * Set up a grid of 5 columns in the outside container, and have the wrapper
+ * occupy the center-most columns to achieve horizontal alignment.
+ *
+ * The CSS used to create the fixed table headers was borrowed from:
+ * https://codepen.io/paulobrien/pen/LBrMxa
+ */
+#table-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    z-index: 1;
+    margin: auto;
+    overflow-x: auto;
+    overflow: auto;
+    height: 300px;
+}
+
+/* Overflowing the grid region will happen within the scrollable wrapper. */
+#table-wrapper {
+    grid-column: 2 / 5;
+    overflow-x: scroll;
+}
+
+/* Improve readability */
+tr:nth-child(even) {
+    background-color: #bbb;
+}
+
+table {
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+td {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    vertical-align: top;
+}
+
+th {
+    background: #333;
+    color: #f4b223;
+    min-width: 1.6rem;
+    position: sticky;
+    top: 0;
+}
+
+th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #333;
+}
+
+/* Form CSS */
+
+/* Achieve horiontal alignment of the form-container by aligning nested divs.
+ * #form-container is the outer div that holds #form-wrapper div.
+ * #form-wrapper holds <form id="#input-form">
+ *
+ * Used the following as a reference for alignment:
+ * https://stackoverflow.com/questions/1269245/centering-floating-divs-within-another-div
+ */
+#form-container {
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+#form-wrapper {
+    display: inline-block;
+}
+
+#input-form {
+    text-align: left;
+}
+
+/* Reduce the size of the text headers h1, h2 */
+#input-form h1 {
+    font-size: 1.2rem;
+}
+
+#input-form h2 {
+    font-size: 1.0rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+.btn {
+    margin-bottom: 1.2rem;
+}
+
+input:invalid {
+    box-shadow: 0 0 2px 1px red;
+}
+
+#error {
+    font-size: 0.6rem;
+    color: red;
+}

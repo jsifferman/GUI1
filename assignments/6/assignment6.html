@@ -1,0 +1,53 @@
+<!--
+    File: /usr/cs/undergrad/2020/jsiffer1/public_html/assignments/6/assignment6.html
+    Course: COMP.4610 GUI Programming I
+    Assignment: 6 - Creating an Interactive Dynamic Table
+
+    James Sifferman, UML Computer Science, james_sifferman@student.uml.edu
+    Copyright (c) 2019 by James Sifferman. All rights reserved. May be
+    freely copied or excerpted for educational purposes with credit to
+    the author.
+    Updated by JS on November 12, 2019 at 8:00 PM
+-->
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Mutiplication Table</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- Form -->
+        <div id="form-container">
+            <div id="form-wrapper">
+            <form id="input-form" novalidate>
+                <h1>Enter a range of integers.</h1>
+                <h2>(order doesn't matter):</h2>
+                <div id="horizontal-container">
+                    <label>Horizontal Axis:</label><br>
+                    <input type="number" id="horizontal_start" required><span id="first-entry"></span><br>
+                    <input type="number" id="horizontal_end" required><span id="second-entry"></span><br>
+                </div>
+                <div id="vertical-container">
+                    <label>Vertical Axis</label><br>
+                    <input type="number" id="vertical_start" required><span id="third-entry"></span><br>
+                    <input type="number" id="vertical_end" required><span id="fourth-entry"></span><br>
+                    <span id="error" aria-live="polite"></span>
+                </div><br>
+                <button id="button" onclick="validateForm()">Submit</button>
+            </form><br>
+            </div>
+        </div><br>
+        <!-- Table -->
+        <div id="table-container">
+            <div id="table-wrapper">
+                <table id="dyn-table">
+
+                </table>
+            </div>
+        </div>
+        <script src="js/script.js" async defer></script>
+    </body>
+</html>
