@@ -13,23 +13,26 @@
 const INT_MAX = 50;
 const INT_MIN = -50;
 
-// Prevent the form from submitting the entries.
-document.getElementById("button").addEventListener("click", function (event) {
-    event.preventDefault();
-    
-    // Test Suite for Unit Tests
-    // runTests();
-});
+const button = document.getElementById("button");
+
+// If form entries pass validation, display table, otherwise display an error.
+button.addEventListener("click", validateForm);
+
+// Run a series of unit tests (for debug only)
+// button.addEventListener("click", runTests);
 
 /* Description: validateForm() is called when the "Submit" button is clicked.
- *              It checks that the values entered by the user are valid, and if not,
- *              displays an error message and returns void. On success, calls main()
- *              and proceeds with program execution.
+ *              It checks that the values entered by the user are valid, and 
+ *              if not, displays an error message and returns void. On success,
+ *              calls main() and proceeds with program execution.
  * 
  * Parameters : none
  * Return     : Void
  */
-function validateForm() {
+function validateForm(event) {
+
+    // Prevent the form from submitting the entries
+    event.preventDefault();
 
     clearErrorAndTable();
 
@@ -314,7 +317,7 @@ function returnMinMax( first, second ) {
 function clearErrorAndTable() {
 
     document.querySelector('#dyn-table').innerHTML = "";
-    error.innerHTML = "";
+    document.querySelector('#error').innerHTML = "";
 }
 
 
