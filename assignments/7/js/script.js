@@ -371,32 +371,11 @@ function isValidNumber( value ) {
     return false;
 }
 
-/* Description: Given an array of values, iterates through them and determines
- *              if they are within the acceptable range defined by INT_MIN and
- *              INT_MAX.
+/* Description: Verifies that the argument is in the range [INT_MIN, INT_MAX].
  *
- * Parameters : values (array)
- * Return     : true (values are within the acceptable range), otherwise false.
+ * Parameters : value (string - the value entered by the user)
+ * Return     : boolean (true if in range, otherwise false)
  */
-function inRange( values ) {
-
-    console.log(`inRange(): values = ${values}, type = ${typeof(values)}`)
-
-    if ( Array.isArray(values) ) {
-        console.log(`inRange(): ${values} is an array.`);
-    }
-    if ( Number.isSafeInteger(parseInt(values)) ) {
-        console.log(`inRange(): ${values} is a number.`);
-    }
-    
-    for( let i in values ) {
-        if ( parseInt(values[i]) < INT_MIN || parseInt(values[i]) > INT_MAX ) {
-            return false;
-        }
-    }
-    return true;
-}
-
 function isValueInRange( value ) {
 
     console.log(`isValueInRange(): value = ${value}, type = ${typeof(value)}`);
@@ -547,27 +526,24 @@ function testMakeRange() {
                     'Case 1 failed with [%s]', makeRange(a, b).toString());
 }
 
-function testInRange() {
+function testisValueInRange() {
 
     let testVals;
 
     // Case 1
-    // One invalid value which is less than INT_MIN.
-    testVals = [-51, 1, 2, 3];
-    console.assert(!inRange(testVals),
-                   'Case 1 failed with [%s]', testVals.toString());
+    // Invalid value which is less than INT_MIN.
+    console.assert(!isValueInRange(-51),
+                   'Case 1 failed with [%s]', -51);
 
     // Case 2
-    // One invalid value which is greater than INT_MAX.
-    testVals = [-1, 0, 1, 1000];
-    console.assert(!inRange(testVals),
-                   'Case 2 failed with [%s]', testVals.toString());
+    // Invalid value which is greater than INT_MAX.
+    console.assert(!isValueInRange(1000),
+                   'Case 2 failed with [%s]', 1000);
 
     // Case 3
-    // All valid values.
-    testVals = [1, 2, 3, 4];
-    console.assert(inRange(testVals),
-                   'Case 3 failed with [%s]', testVals.toString());
+    // Valid value which is in [INT_MIN, INT_MAX]
+    console.assert(isValueInRange(1),
+                   'Case 3 failed with [%s]', 1);
 }
 
 // Checks whether two arrays contain identical elements.
