@@ -76,7 +76,9 @@ $(document).ready( function() {
     $("#button").click(validateFormOnSubmit);
     $("input").on('input', validateEntryOnInput);
 
-    $("#close-all-tabs").click( function () {
+    $("#close-all-tabs").click( function (e) {
+
+        e.preventDefault();
         
         // Generated tabs will contain this class name.
         $(".ui-tabs-tab").remove();
