@@ -73,11 +73,18 @@ $(document).ready( function() {
     }
     var tabs = $("#tabs").tabs();
  
+    // When the submit button is clicked, run validation on the input fields,
+    // and generate table on success.
     $("#button").click(validateFormOnSubmit);
+
+    // While the user is entering a value, validate their entry in real-time.
     $("input").on('input', validateEntryOnInput);
 
+    // When the Close all Tabs button is clicked, all generated HTML
+    // associated with the tabs will be removed from the webpage.
     $("#close-all-tabs").click( function (e) {
 
+        // Preserves position of sliders and values in input fields.
         e.preventDefault();
         
         // Generated tabs will contain this class name.
