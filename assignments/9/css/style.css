@@ -66,7 +66,7 @@ li {
     margin-bottom: 0;
     padding-top: 0.5em;
     padding-left: 0em;
-    background-image: url("/img/board_sm.png");
+    background-image: url("img/board_sm.png");
     background-repeat: no-repeat;
     /* background-size: auto; */
 }
@@ -78,7 +78,7 @@ li {
     margin-top: 4rem;
     margin-left: 4rem;
     padding-top: 4rem;
-    background-image: url('/img/tile_rack.png');
+    background-image: url('img/tile_rack.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
