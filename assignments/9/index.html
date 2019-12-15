@@ -9,32 +9,28 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="container" class="snappable">
-        <!-- <div id="board">
-            <div id="tile1" class="tile snappable"></div>
-            <div id="tile2" class="tile snappable"></div>
-            <div id="tile3" class="tile snappable"></div>
-            <div id="tile4" class="tile snappable"></div>
-            <div id="tile5" class="tile snappable"></div>
-            <div id="tile6" class="tile snappable"></div>
-            <div id="tile7" class="tile snappable"></div>
-        </div> -->
-        <ul id="board" class="snappable">
-            <!-- <li id="tile1" class="tile snappable"></li>
-            <li id="tile2" class="tile snappable"></li>
-            <li id="tile3" class="tile snappable"></li>
-            <li id="tile4" class="tile snappable"></li>
-            <li id="tile5" class="tile snappable"></li>
-            <li id="tile6" class="tile snappable"></li>
-            <li id="tile7" class="tile snappable"></li> -->
-        </ul>
-        <br><br><br><br><br><br>
-        <div id="results"></div>
-        <button id="reset">Reset</button>
-        <button id="newTiles">Get New Tiles</button>
-        <button id="submit">Submit</button>
-        <div id="score">Score: <div id="scoreVal"></div></div>
-        <br><br><br><br><br><br>
+    <div id="container">
+        <img id="logo" src="img/ScrabbleLiteLogo3.png" alt="Scrabble Logo">
+        <ul id="board" class="snappable"></ul>
+        <div id="middle">
+            <ul id="buttons">
+                <li><button id="submit">Submit</button></li>
+                <li><button id="reset">Reset</button></li>
+                <li><button id="new-game">New Game</button></li>
+            </ul>
+            <div id="score-wrap">
+                <div id="scoreText">Score: </div> <div id="score"></div>
+            </div>
+            <br>
+            <div id="error"></div>
+            <br>
+            
+            <!-- <ul id="score-ul">
+                <li><div id="scoreWrap"><div id="scoreText">Score: </div> <div id="score"></div></div></li>
+                <li><div id="error"></div></li>
+            </ul> -->
+        </div>
+        <br>
         <ul id="rack">
                 <li id="piece1" class="piece snappable"></li>
                 <li id="piece2" class="piece snappable"></li>
@@ -44,15 +40,6 @@
                 <li id="piece6" class="piece snappable"></li>
                 <li id="piece7" class="piece snappable"></li>
         </ul>
-        <!-- <div id="rack">
-            <div id="piece1" class="piece snappable"></div>
-            <div id="piece2" class="piece snappable"></div>
-            <div id="piece3" class="piece snappable"></div>
-            <div id="piece4" class="piece snappable"></div>
-            <div id="piece5" class="piece snappable"></div>
-            <div id="piece6" class="piece snappable"></div>
-            <div id="piece7" class="piece snappable"></div>
-        </div> -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

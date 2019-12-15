@@ -24,15 +24,23 @@ $( function() {
     getNewTiles();
 });
 
+function clearErrorText() {
+    $("#error").text('');
+}
+
+function clearScore() {
+    $("#score").text('');
+}
+
 function resetTilesToDefault() {
 
     for ( let i = 1; i <= 7; i++ ) {
         $("#rack").append($("#piece" + i));
     }
+    clearErrorText();
+    clearScore();
     console.log(`Board was reset`);
 }
-
-$("#reset").click(resetTilesToDefault);
 
 // Randomly select 7 tiles
 function getNewTiles() {
@@ -61,6 +69,8 @@ file: ${fileName}, curr class: ${className}, letter class: ${classLetter}`);
     }
     // Reset to default position upon getting new tiles.
     resetTilesToDefault();
+    clearErrorText();
+    clearScore();
 }
 
 function isEnglishWord( word ) {
@@ -103,15 +113,24 @@ function getScore() {
     }
     console.log(`word: ${word}`);
 
+    if ( word === "" ) { 
+        clearErrorText();
+        clearScore();
+        return;
+    }
+
     if ( isEnglishWord( word ) ) {
         console.log(`Found ${word} in the dictionary`);
-        $("#scoreVal").text(`${score}`);
+        $("#score").text(`${score}`);
+        clearErrorText();
     } else {
         console.log(`Could not find ${word} in the dictionary`);
-        $("#scoreVal").text(`Couldn't find that word in the dictionary. Try something else.`);
+        clearScore();
+        $("#error").text(`Couldn't find that word in the dictionary. Try something else.`);
     }
     
 }
 
-$("#newTiles").click(getNewTiles);
+$("#new-game").click(getNewTiles);
+$("#reset").click(resetTilesToDefault);
 $("#submit").click(getScore);
