@@ -1,3 +1,21 @@
+/*
+    File: /usr/cs/undergrad/2020/jsiffer1/public_html/assignments/6/js/script.css
+    Course: COMP.4610 GUI Programming I
+    Assignment: 9 - Implementing a Bit of Scrabble with Drag and Drop
+
+    James Sifferman, UML Computer Science, james_sifferman@student.uml.edu
+    Copyright (c) 2019 by James Sifferman. All rights reserved. May be
+    freely copied or excerpted for educational purposes with credit to
+    the author.
+    Updated by JS on December 15, 2019 at 12:00 AM
+*/
+
+// Scale the page by 85% to achieve a better fit
+// Technique borrowed from user "Firat Deniz" at:
+// https://stackoverflow.com/a/21094279
+var scale = 'scale(0.85)';
+$("body").css("webkitTransform", scale);
+
 $( function() {
     $("#rack").sortable({
         revert: true,
@@ -12,7 +30,7 @@ $( function() {
     $("#board").sortable({
         revert: true,
         connectWith: "#rack",
-        grid: [60, 70],
+        // grid: [60, 70],
         drop: function(event, ui) {
             console.log(`sortable(): dropped ${this.id}`);
         },

@@ -1,10 +1,21 @@
+<!--
+    File: /usr/cs/undergrad/2020/jsiffer1/public_html/assignments/6/assignment6.html
+    Course: COMP.4610 GUI Programming I
+    Assignment: 9 - Implementing a Bit of Scrabble with Drag and Drop
+
+    James Sifferman, UML Computer Science, james_sifferman@student.uml.edu
+    Copyright (c) 2019 by James Sifferman. All rights reserved. May be
+    freely copied or excerpted for educational purposes with credit to
+    the author.
+    Updated by JS on December 15, 2019 at 12:00 AM
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>HW9: Scrabble Lite</title>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,22 +24,17 @@
         <img id="logo" src="img/ScrabbleLiteLogo3.png" alt="Scrabble Logo">
         <ul id="board" class="snappable"></ul>
         <div id="middle">
-            <ul id="buttons">
+            <ul id="buttons-ul">
                 <li><button id="submit">Submit</button></li>
                 <li><button id="reset">Reset</button></li>
                 <li><button id="new-game">New Game</button></li>
             </ul>
-            <div id="score-wrap">
-                <div id="scoreText">Score: </div> <div id="score"></div>
+            <div id="score-wrapper">
+                <div id="score-text">Score: </div> <div id="score"></div>
             </div>
             <br>
             <div id="error"></div>
             <br>
-            
-            <!-- <ul id="score-ul">
-                <li><div id="scoreWrap"><div id="scoreText">Score: </div> <div id="score"></div></div></li>
-                <li><div id="error"></div></li>
-            </ul> -->
         </div>
         <br>
         <ul id="rack">
