@@ -23,7 +23,7 @@ let highScore = 0;
 // Scale the page by 85% to achieve a better fit
 // Technique borrowed from user "Firat Deniz" at:
 // https://stackoverflow.com/a/21094279
-var scale = 'scale(0.85)';
+var scale = 'scale(0.75)';
 $("body").css("webkitTransform", scale);
 
 $( function() {
