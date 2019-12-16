@@ -138,6 +138,10 @@ button:active {
     box-shadow: 0px 0px 8px 1px rgb(71, 209, 71);
 }
 
+#shuffle {
+    box-shadow: 0px 0px 8px 1px rgb(252, 174, 101);
+}
+
 /* Score Text, Score Value, and Error Message */
 
 #score-wrapper {
@@ -171,4 +175,25 @@ button:active {
     font-weight: bold;
     font-size: 0.8rem;
     color: red;
+}
+
+/* This box will pop up when the user drops a blank tile
+    on the board. Ensure it is the top-most element by
+    setting a high z-index and absolute positioning. */
+#blank {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 33%;
+    background-color: white;
+    text-align: left;
+    width: 380px;
+    /* height: 550px; */
+    border: 2px solid black;
+    display: none;
+}
+
+#blank img {
+    width: 60px;
+    margin: 0.5rem;
 }
