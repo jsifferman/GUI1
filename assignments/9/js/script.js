@@ -17,6 +17,8 @@
 //        Fix spacing issues inside parentheses, etc.
 //        Add comments.
 //        Test thoroughly.
+//        Optional: Display to user how many tiles per letter are available in real time.
+//        Optional: Display the word score after the player clicks submit on a valid word.
 
 let highScore = 0;
 
